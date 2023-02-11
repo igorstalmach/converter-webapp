@@ -1,8 +1,16 @@
 import React from "react";
 
-export default function TimeConverterLogo() {
+interface IProps {
+    width: number;
+    height: number;
+}
+
+export default function TimeConverterLogo(props: IProps) {
+    const width = props.width ?? 7050;
+    const height = props.height ?? 1290;
+
     return(
-        <svg width={705} height={129} viewBox="0 0 705 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width={width} height={height} viewBox="0 0 705 129" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g>
               <path
                 d="M163.43 99.5474L155.874 29.1981H169.623L173.5 73.6061L177.458 29.1981H190.566L194.324 73.6061L198.08 29.1981H211.988L204.315 99.5474H187.449L183.931 65.6917L180.575 99.5474H163.43Z"
