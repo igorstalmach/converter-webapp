@@ -3,8 +3,10 @@ import styles from "./assets/Footer.module.scss";
 
 export default function Footer() {
     return(
-        <div className={styles.container}>
-
-        </div>
+        <footer className={styles.container}>
+            <div className={styles.text}>
+                <a href={"https://github.com/igorstalmach"}>Igor Stalmach</a>, 2023
+            </div>
+        </footer>
     );
 }

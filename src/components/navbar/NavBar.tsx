@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 export default function NavBar() {
     return(
-        <div className={styles.container}>
+        <nav className={styles.container}>
             <div className={styles.title}>
                 What _ _ _ _ is it?
             </div>
@@ -13,6 +13,6 @@ export default function NavBar() {
                 <Link to={'/currency'} className={styles.navItems}>Currency</Link>
                 <Link to={'/temperature'} className={styles.navItems}>Temperature</Link>
             </div>
-        </div>
+        </nav>
     );
 }

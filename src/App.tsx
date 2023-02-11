@@ -6,16 +6,16 @@ import Footer from "./components/footer/Footer";
 import styles from "./App.module.scss";
 
 export default function App() {
-  return (
-    <div className={styles.container}>
-      <BrowserRouter>
-        <NavBar/>
-        <Routes>
-            <Route path="/" element={<TimeConverter/>}/>
-            <Route path="/time" element={<TimeConverter/>}/>
-        </Routes>
-        <Footer/>
-      </BrowserRouter>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <div className={styles.container}>
+                <NavBar/>
+                    <Routes>
+                        <Route path="/" element={<TimeConverter/>}/>
+                        <Route path="/time" element={<TimeConverter/>}/>
+                    </Routes>
+                <Footer/>
+            </div>
+        </BrowserRouter>
+    );
 }
