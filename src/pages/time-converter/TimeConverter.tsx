@@ -2,8 +2,7 @@ import React from "react";
 import styles from "./assets/TimeConverter.module.scss";
 import TimeConverterLogo from "../../icons/TimeConverterLogo";
 import Option from "./Option";
-import { UTC, GMT, abbreviations, TimeZone } from "./assets/timeZoneValues";
-import { clockType} from "./assets/clockType";
+import { UTC, GMT, abbreviations } from "./assets/timeZoneValues";
 
 export default function TimeConverter() {
     return(
@@ -35,13 +34,6 @@ export default function TimeConverter() {
                               })}
                           </optgroup>
                         </select>
-                        <select className={styles.smallInput}>
-                          <optgroup label="Clock type">
-                              {clockType.map(item => {
-                                    return <Option value={item.value} label={item.label}/>
-                              })}
-                          </optgroup>
-                        </select>
                     </div>
                     <span className={styles.text}>
                         To
@@ -65,13 +57,8 @@ export default function TimeConverter() {
                               })}
                           </optgroup>
                         </select>
-                        <select className={styles.smallInput}>
-                          <optgroup label="Clock type">
-                              {clockType.map(item => {
-                                    return <Option value={item.value} label={item.label}/>
-                              })}
-                          </optgroup>
-                        </select>
+                    </div>
+                    <div className={styles.inputBoxes}>
                         <span className={styles.smallText}>
                             Hint: Your IP matches:
                         </span>
