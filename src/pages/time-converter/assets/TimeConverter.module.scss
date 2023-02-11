@@ -41,12 +41,6 @@ body {
         margin-top: 40px;
       }
 
-      .smallText {
-        font-size: 1rem;
-        grid-column: 2 / 3;
-        margin-left: 30px;
-      }
-
       .inputBoxes, .inputBoxesResult {
         grid-column: 2 / 3;
         display: flex;
@@ -93,6 +87,10 @@ body {
 
       .inputBoxesResult {
         margin-top: 50px;
+      }
+
+      .ipLookup {
+        grid-column: 2 / 3;
       }
     }
   }

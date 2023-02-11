@@ -1,0 +1,13 @@
+@import '../../../scss-presets/global-colors.module.scss';
+@import '../../../scss-presets/fonts.module.scss';
+
+.container {
+  font-family: $anton;
+  font-size: 1rem;
+  color: $main-text;
+  letter-spacing: 0.05rem;
+
+  .text {
+    color: $support-text;
+  }
+}
