@@ -1,5 +1,6 @@
 @import '../../../scss-presets/global-colors.module.scss';
 @import '../../../scss-presets/fonts.module.scss';
+@import '../../../scss-presets/screens.module.scss';
 
 body {
   background: $main-background;
@@ -11,6 +12,10 @@ body {
   grid-template-rows: 10% 60% 30%;
   height: 100%;
   width: 100vw;
+
+  @include breakpointXL {
+    grid-template-columns: 10% 80% 10%;
+  }
 
   .wrapper {
     grid-column: 2 / 3;
@@ -24,87 +29,94 @@ body {
       margin-bottom: 30px;
     }
 
-    .content {
-      display: grid;
-      grid-template-columns: 35% 65%;
+    .contentContainer {
+      display: flex;
+      justify-content: center;
       align-items: center;
 
-      .text, .smallText, .textResult {
-        grid-column: 1 / 2;
-        font-family: $anton;
-        font-size: 1.5rem;
-        color: $main-text;
-        justify-self: flex-end;
-      }
-
-      .textResult {
-        margin-top: 40px;
-      }
-
-      .inputBoxes, .inputBoxesResult {
-        grid-column: 2 / 3;
-        display: flex;
-        justify-content: flex-end;
+      .content {
+        display: grid;
+        grid-template-columns: 25% 75%;
         align-items: center;
-        margin: 10px 0 10px 0;
-        justify-self: flex-start;
+        max-width: 600px;
 
-        .input, .smallInput, .box, .smallBox {
+        .text, .smallText, .textResult {
+          grid-column: 1 / 2;
           font-family: $anton;
-          font-size: 1rem;
-          height: 30px;
-          color: $input-text;
-          background: $input-background;
-          margin: 0 10px 0 15px;
-          border-radius: 10px;
-          text-align: center;
+          font-size: 1.5rem;
+          color: $main-text;
+          justify-self: flex-end;
         }
 
-        .input, .smallInput {
-          outline: none;
-          border-top-style: hidden;
-          border-right-style: hidden;
-          border-left-style: hidden;
-          border-bottom-style: hidden;
+        .textResult {
+          margin-top: 40px;
         }
 
-        .box {
-          height: 33px;
+        .inputBoxes, .inputBoxesResult {
+          grid-column: 2 / 3;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          margin: 10px 0 10px 0;
+          justify-self: flex-start;
+
+          .input, .smallInput, .box, .smallBox {
+            font-family: $anton;
+            font-size: 1rem;
+            height: 30px;
+            color: $input-text;
+            background: $input-background;
+            margin: 0 10px 0 15px;
+            border-radius: 10px;
+            text-align: center;
+          }
+
+          .input, .smallInput {
+            outline: none;
+            border-top-style: hidden;
+            border-right-style: hidden;
+            border-left-style: hidden;
+            border-bottom-style: hidden;
+          }
+
+          .box {
+            height: 33px;
+          }
+
+          .box:hover {
+            cursor: not-allowed;
+          }
+
+          .input, .box {
+            width: 250px;
+          }
+
+          .smallInput, .smallBox {
+            width: 100px;
+          }
         }
 
-        .box:hover {
-          cursor: not-allowed;
+        .inputBoxesResult {
+          margin-top: 50px;
+
+          .button {
+            background-color: $support-text;
+          }
+
+          .button:hover {
+            cursor: pointer;
+            opacity: 0.7;
+          }
+
+          .button:active {
+            opacity: 0.5;
+            transform: translateY(3px);
+          }
         }
 
-        .input, .box {
-          width: 250px;
+        .ipLookup {
+          grid-column: 2 / 3;
         }
-
-        .smallInput, .smallBox {
-          width: 100px;
-        }
-      }
-
-      .inputBoxesResult {
-        margin-top: 50px;
-
-        button {
-          background-color: $support-text !important;
-        }
-
-        button:hover {
-          cursor: pointer;
-          opacity: 0.7;
-        }
-
-        button:active {
-          opacity: 0.5;
-          transform: translateY(3px);
-        }
-      }
-
-      .ipLookup {
-        grid-column: 2 / 3;
       }
     }
   }

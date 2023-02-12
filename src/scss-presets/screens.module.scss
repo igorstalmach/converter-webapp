@@ -1,0 +1,14 @@
+$breakpointL: 900px;
+$breakpointXL: 1200px;
+
+@mixin breakpointXL {
+  @media (max-width: $breakpointXL) {
+    @content;
+  }
+}
+
+@mixin breakpointL {
+  @media (max-width: $breakpointL) {
+    @content;
+  }
+}

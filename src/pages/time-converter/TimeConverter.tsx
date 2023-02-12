@@ -4,6 +4,7 @@ import TimeConverterLogo from "../../icons/TimeConverterLogo";
 import Option from "./Option";
 import { UTC, GMT, abbreviations } from "./assets/timeZoneValues";
 import IPLookUp from "./IPLookUp";
+import {scss_classes} from "../../global";
 
 export default function TimeConverter() {
     const [resultTime, setResultTime] = React.useState<string>("");
@@ -43,65 +44,67 @@ export default function TimeConverter() {
                 <div className={styles.title}>
                     <TimeConverterLogo width={705} height={129}/>
                 </div>
-                <div className={styles.content}>
-                    <span className={styles.text}>
-                        From
-                    </span>
-                    <div className={styles.inputBoxes}>
-                        <input type="time" className={styles.smallInput}/>
-                        <select className={styles.input}>
-                          <optgroup label="Abbreviations">
-                              {abbreviations.map(item => {
-                                    return <Option value={item.value} label={item.label}/>
-                              })}
-                          </optgroup>
-                          <optgroup label="Coordinated Universal Time">
-                              {UTC.map(item => {
-                                    return <Option value={item.value} label={item.label}/>
-                              })}
-                          </optgroup>
-                          <optgroup label="Greenwich Mean Time">
-                              {GMT.map(item => {
-                                    return <Option value={item.value} label={item.label}/>
-                              })}
-                          </optgroup>
-                        </select>
-                    </div>
-                    <span className={styles.text}>
-                        To
-                    </span>
-                    <div className={styles.inputBoxes}>
-                        <select className={styles.input}>
-                          <optgroup label="Abbreviations">
-                              {abbreviations.map(item => {
-                                    return <Option value={item.value} label={item.label}/>
-                              })}
-                          </optgroup>
-                          <optgroup label="Coordinated Universal Time">
-                              {UTC.map(item => {
-                                    return <Option value={item.value} label={item.label}/>
-                              })}
-                          </optgroup>
-                          <optgroup label="Greenwich Mean Time">
-                              {GMT.map(item => {
-                                    return <Option value={item.value} label={item.label}/>
-                              })}
-                          </optgroup>
-                        </select>
-                    </div>
-                    <div className={styles.inputBoxes}>
-                        <div className={styles.ipLookup}>
-                            <IPLookUp/>
-                        </div>
-                    </div>
-                    <span className={styles.textResult}>
-                        Result
-                    </span>
-                    <div className={styles.inputBoxesResult}>
-                        <span className={styles.smallBox}>
-                            {resultTime}
+                <div className={styles.contentContainer}>
+                    <div className={styles.content}>
+                        <span className={styles.text}>
+                            From
                         </span>
-                        <button className={styles.smallInput} onClick={() => convertTime()}>Convert</button>
+                        <div className={styles.inputBoxes}>
+                            <input type="time" className={styles.smallInput}/>
+                            <select className={styles.input}>
+                              <optgroup label="Abbreviations">
+                                  {abbreviations.map(item => {
+                                        return <Option value={item.value} label={item.label}/>
+                                  })}
+                              </optgroup>
+                              <optgroup label="Coordinated Universal Time">
+                                  {UTC.map(item => {
+                                        return <Option value={item.value} label={item.label}/>
+                                  })}
+                              </optgroup>
+                              <optgroup label="Greenwich Mean Time">
+                                  {GMT.map(item => {
+                                        return <Option value={item.value} label={item.label}/>
+                                  })}
+                              </optgroup>
+                            </select>
+                        </div>
+                        <span className={styles.text}>
+                            To
+                        </span>
+                        <div className={styles.inputBoxes}>
+                            <select className={styles.input}>
+                              <optgroup label="Abbreviations">
+                                  {abbreviations.map(item => {
+                                        return <Option value={item.value} label={item.label}/>
+                                  })}
+                              </optgroup>
+                              <optgroup label="Coordinated Universal Time">
+                                  {UTC.map(item => {
+                                        return <Option value={item.value} label={item.label}/>
+                                  })}
+                              </optgroup>
+                              <optgroup label="Greenwich Mean Time">
+                                  {GMT.map(item => {
+                                        return <Option value={item.value} label={item.label}/>
+                                  })}
+                              </optgroup>
+                            </select>
+                        </div>
+                        <div className={styles.inputBoxes}>
+                            <div className={styles.ipLookup}>
+                                <IPLookUp/>
+                            </div>
+                        </div>
+                        <span className={styles.textResult}>
+                            Result
+                        </span>
+                        <div className={styles.inputBoxesResult}>
+                            <span className={styles.smallBox}>
+                                {resultTime}
+                            </span>
+                            <button className={scss_classes(styles.smallInput, styles.button)} onClick={() => convertTime()}>Convert</button>
+                        </div>
                     </div>
                 </div>
             </div>
