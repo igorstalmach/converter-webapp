@@ -4,8 +4,19 @@ import {scss_classes} from "../../../global";
 import TemperatureConverterLogo from "../../../icons/TemperatureConverterLogo";
 import IPTemperatureLookUp from "./utils/IPTemperatureLookUp";
 import TemperatureSelectInput from "./utils/TemperatureSelectInput";
+import temperatureCalculator from "./utils/temperatureCalculator";
 
 export default function TemperatureConverter() {
+    const [result, setResult] = React.useState<number | undefined>();
+
+    const convertTemp = () => {
+        const initialTemp = parseInt(document.getElementsByTagName("input")[0].value);
+        const scaleFrom = document.getElementsByTagName("select")[0].value;
+        const scaleTo = document.getElementsByTagName("select")[1].value;
+
+        setResult(Math.round(temperatureCalculator(scaleTo, scaleFrom, initialTemp) * 100) / 100);
+    }
+
     useEffect(() => {
         document.title = 'Temperature Converter';
     }, [])
@@ -41,9 +52,9 @@ export default function TemperatureConverter() {
                         </span>
                         <div className={styles.inputBoxesResult}>
                             <span className={styles.smallBox}>
-
+                                {result}
                             </span>
-                            <button className={scss_classes(styles.smallInput, styles.button)}>Convert</button>
+                            <button className={scss_classes(styles.smallInput, styles.button)} onClick={() => convertTemp()}>Convert</button>
                         </div>
                     </div>
                 </div>
