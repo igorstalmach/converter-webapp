@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from "./assets/TimeConverter.module.scss";
 import TimeConverterLogo from "../../icons/TimeConverterLogo";
 import Option from "./Option";
@@ -6,6 +6,38 @@ import { UTC, GMT, abbreviations } from "./assets/timeZoneValues";
 import IPLookUp from "./IPLookUp";
 
 export default function TimeConverter() {
+    const [resultTime, setResultTime] = React.useState<string>("");
+
+    const convertTime = () => {
+        const firstTimeZone = parseInt(document.getElementsByTagName("select")[0].value);
+        const firstTime = document.getElementsByTagName("input")[0]?.value;
+        const secondTimeZone = parseInt(document.getElementsByTagName("select")[1].value);
+        console.log(firstTimeZone, firstTime, secondTimeZone);
+
+        const firstTimeInMinutesSinceUTCZero = ((parseInt(firstTime.slice(0, 2)) * 60 + parseInt(firstTime.slice(3, 5))) - firstTimeZone) % 1440;
+        let secondTimeInMinutesSinceUTCZero = (firstTimeInMinutesSinceUTCZero + secondTimeZone) % 1440;
+        console.log(firstTime.slice(3, 5));
+        console.log(firstTimeInMinutesSinceUTCZero, secondTimeInMinutesSinceUTCZero);
+
+        if (secondTimeInMinutesSinceUTCZero < 0) {
+            secondTimeInMinutesSinceUTCZero = secondTimeInMinutesSinceUTCZero + 1440;
+        }
+
+        const hour = Math.trunc(secondTimeInMinutesSinceUTCZero / 60);
+        console.log(hour);
+        console.log((secondTimeZone % 60).toString())
+
+        if (hour < 10) {
+            setResultTime("0" + Math.trunc(hour).toString() + ":" + (secondTimeInMinutesSinceUTCZero % 60).toString());
+        } else {
+            setResultTime(Math.trunc(hour).toString() + ":" + (secondTimeInMinutesSinceUTCZero % 60).toString());
+        }
+    }
+
+    useEffect(() => {
+        document.title = 'Time Zone Converter';
+    }, [])
+
     return(
         <div className={styles.container}>
             <div className={styles.wrapper}>
@@ -40,7 +72,6 @@ export default function TimeConverter() {
                         To
                     </span>
                     <div className={styles.inputBoxes}>
-                        <input type="time" className={styles.smallInput}/>
                         <select className={styles.input}>
                           <optgroup label="Abbreviations">
                               {abbreviations.map(item => {
@@ -68,9 +99,10 @@ export default function TimeConverter() {
                         Result
                     </span>
                     <div className={styles.inputBoxesResult}>
-                        <span className={styles.box}>
-
+                        <span className={styles.smallBox}>
+                            {resultTime}
                         </span>
+                        <button className={styles.smallInput} onClick={() => convertTime()}>Convert</button>
                     </div>
                 </div>
             </div>

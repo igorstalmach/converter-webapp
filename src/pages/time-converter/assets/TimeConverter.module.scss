@@ -80,13 +80,23 @@ body {
           width: 250px;
         }
 
-        .smallInput {
+        .smallInput, .smallBox {
           width: 100px;
         }
       }
 
       .inputBoxesResult {
         margin-top: 50px;
+
+        button:hover {
+          cursor: pointer;
+          opacity: 0.7;
+        }
+
+        button:active {
+          opacity: 0.5;
+          transform: translateY(3px);
+        }
       }
 
       .ipLookup {
