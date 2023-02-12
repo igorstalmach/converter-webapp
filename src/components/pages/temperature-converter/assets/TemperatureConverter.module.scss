@@ -1,6 +1,6 @@
-@import '../../../scss-presets/global-colors.module.scss';
-@import '../../../scss-presets/fonts.module.scss';
-@import '../../../scss-presets/screens.module.scss';
+@import '../../../../scss-presets/global-colors.module';
+@import '../../../../scss-presets/fonts.module';
+@import '../../../../scss-presets/screens.module';
 
 .container {
   display: grid;
@@ -84,7 +84,7 @@
           }
 
           .input, .box {
-            width: 250px;
+            width: 150px;
           }
 
           .smallInput, .smallBox {
@@ -111,7 +111,7 @@
         }
 
         .ipLookup {
-          grid-column: 2 / 3;
+          grid-column: 1 / 3;
         }
       }
     }

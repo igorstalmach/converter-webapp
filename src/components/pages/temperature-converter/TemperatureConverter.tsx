@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 import styles from "./assets/TemperatureConverter.module.scss";
-import {scss_classes} from "../../global";
-import TemperatureConverterLogo from "../../icons/TemperatureConverterLogo";
-import IPTemperatureLookUp from "./IPTemperatureLookUp";
-import TemperatureSelectInput from "./TemperatureSelectInput";
+import {scss_classes} from "../../../global";
+import TemperatureConverterLogo from "../../../icons/TemperatureConverterLogo";
+import IPTemperatureLookUp from "./utils/IPTemperatureLookUp";
+import TemperatureSelectInput from "./utils/TemperatureSelectInput";
 
 export default function TemperatureConverter() {
     useEffect(() => {

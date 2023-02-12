@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 import styles from "./assets/TimeConverter.module.scss";
-import TimeConverterLogo from "../../icons/TimeConverterLogo";
-import IPTimeZoneLookUp from "./IPTimeZoneLookUp";
-import {scss_classes} from "../../global";
-import TimeZoneSelectInput from "./TimeZoneSelectInput";
+import TimeConverterLogo from "../../../icons/TimeConverterLogo";
+import IPTimeZoneLookUp from "./utils/IPTimeZoneLookUp";
+import {scss_classes} from "../../../global";
+import TimeZoneSelectInput from "./utils/TimeZoneSelectInput";
 
 export default function TimeConverter() {
     const [resultTime, setResultTime] = React.useState<string>("");

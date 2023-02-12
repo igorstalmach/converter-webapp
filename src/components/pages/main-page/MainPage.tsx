@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styles from "./assets/MainPage.module.scss";
-import MainPageArrowLeft from "../../icons/MainPageArrowLeft";
-import MainPageArrowRight from "../../icons/MainPageArrowRight";
+import MainPageArrowLeft from "../../../icons/MainPageArrowLeft";
+import MainPageArrowRight from "../../../icons/MainPageArrowRight";
 
 export default function MainPage() {
     const [width, setWidth] = useState<number>(window.innerWidth);

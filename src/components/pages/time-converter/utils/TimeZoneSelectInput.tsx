@@ -1,5 +1,5 @@
 import React from "react";
-import {abbreviations, GMT, UTC} from "./assets/timeZoneValues";
+import {abbreviations, GMT, UTC} from "../assets/timeZoneValues";
 import SelectOption from "./SelectOption";
 
 interface IProps {
