@@ -9,11 +9,9 @@ export default function IPLookUp() {
 
     const getIP = async () => {
         const res = await axios.get('https://geolocation-db.com/json/');
-        console.log(res.data);
         setPublicIP(res.data.IPv4);
 
         const res2 = await axios.get('http://ip-api.com/json/' + publicIP + '?fields=offset');
-        console.log(res2.data);
         setTimeZone(getTimeZone(res2.data.offset));
     }
 
