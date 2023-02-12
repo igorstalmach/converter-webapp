@@ -2,10 +2,6 @@
 @import '../../../scss-presets/fonts.module.scss';
 @import '../../../scss-presets/screens.module.scss';
 
-body {
-  background: $main-background;
-}
-
 .container {
   display: grid;
   grid-template-columns: 20% 60% 20%;
