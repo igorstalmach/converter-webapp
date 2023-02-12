@@ -5,7 +5,7 @@ interface IProps {
     label: string
 }
 
-export default function Option(props: IProps) {
+export default function SelectOption(props: IProps) {
     return(
         <option value={props.value}>{props.label}</option>
     );

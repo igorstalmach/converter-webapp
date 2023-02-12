@@ -1,10 +1,9 @@
 import React, {useEffect} from "react";
 import styles from "./assets/TimeConverter.module.scss";
 import TimeConverterLogo from "../../icons/TimeConverterLogo";
-import Option from "./Option";
-import { UTC, GMT, abbreviations } from "./assets/timeZoneValues";
 import IPTimeZoneLookUp from "./IPTimeZoneLookUp";
 import {scss_classes} from "../../global";
+import TimeZoneSelectInput from "./TimeZoneSelectInput";
 
 export default function TimeConverter() {
     const [resultTime, setResultTime] = React.useState<string>("");
@@ -51,45 +50,13 @@ export default function TimeConverter() {
                         </span>
                         <div className={styles.inputBoxes}>
                             <input type="time" className={styles.smallInput}/>
-                            <select className={styles.input}>
-                              <optgroup label="Abbreviations">
-                                  {abbreviations.map(item => {
-                                        return <Option value={item.value} label={item.label}/>
-                                  })}
-                              </optgroup>
-                              <optgroup label="Coordinated Universal Time">
-                                  {UTC.map(item => {
-                                        return <Option value={item.value} label={item.label}/>
-                                  })}
-                              </optgroup>
-                              <optgroup label="Greenwich Mean Time">
-                                  {GMT.map(item => {
-                                        return <Option value={item.value} label={item.label}/>
-                                  })}
-                              </optgroup>
-                            </select>
+                            <TimeZoneSelectInput className={styles.input}/>
                         </div>
                         <span className={styles.text}>
                             To
                         </span>
                         <div className={styles.inputBoxes}>
-                            <select className={styles.input}>
-                              <optgroup label="Abbreviations">
-                                  {abbreviations.map(item => {
-                                        return <Option value={item.value} label={item.label}/>
-                                  })}
-                              </optgroup>
-                              <optgroup label="Coordinated Universal Time">
-                                  {UTC.map(item => {
-                                        return <Option value={item.value} label={item.label}/>
-                                  })}
-                              </optgroup>
-                              <optgroup label="Greenwich Mean Time">
-                                  {GMT.map(item => {
-                                        return <Option value={item.value} label={item.label}/>
-                                  })}
-                              </optgroup>
-                            </select>
+                            <TimeZoneSelectInput className={styles.input}/>
                         </div>
                         <div className={styles.inputBoxes}>
                             <div className={styles.ipLookup}>

@@ -3,6 +3,7 @@ import styles from "./assets/TemperatureConverter.module.scss";
 import {scss_classes} from "../../global";
 import TemperatureConverterLogo from "../../icons/TemperatureConverterLogo";
 import IPTemperatureLookUp from "./IPTemperatureLookUp";
+import TemperatureSelectInput from "./TemperatureSelectInput";
 
 export default function TemperatureConverter() {
     useEffect(() => {
@@ -22,25 +23,13 @@ export default function TemperatureConverter() {
                         </span>
                         <div className={styles.inputBoxes}>
                             <input type="number" className={styles.smallInput}/>
-                            <select className={styles.input}>
-                              <optgroup label="Scales">
-                                  <option value="Celsius">Celsius</option>
-                                  <option value="Fahrenheit">Fahrenheit</option>
-                                  <option value="Kelvin">Kelvin</option>
-                              </optgroup>
-                            </select>
+                            <TemperatureSelectInput className={styles.input}/>
                         </div>
                         <span className={styles.text}>
                             To
                         </span>
                         <div className={styles.inputBoxes}>
-                            <select className={styles.input}>
-                              <optgroup label="Scales">
-                                  <option value="Celsius">Celsius</option>
-                                  <option value="Fahrenheit">Fahrenheit</option>
-                                  <option value="Kelvin">Kelvin</option>
-                              </optgroup>
-                            </select>
+                            <TemperatureSelectInput className={styles.input}/>
                         </div>
                         <div className={styles.inputBoxes}>
                             <div className={styles.ipLookup}>
