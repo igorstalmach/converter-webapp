@@ -12,20 +12,19 @@ export default function TimeConverter() {
         const firstTimeZone = parseInt(document.getElementsByTagName("select")[0].value);
         const firstTime = document.getElementsByTagName("input")[0]?.value;
         const secondTimeZone = parseInt(document.getElementsByTagName("select")[1].value);
-        console.log(firstTimeZone, firstTime, secondTimeZone);
+
+        if (firstTime === "") {
+            return;
+        }
 
         const firstTimeInMinutesSinceUTCZero = ((parseInt(firstTime.slice(0, 2)) * 60 + parseInt(firstTime.slice(3, 5))) - firstTimeZone) % 1440;
         let secondTimeInMinutesSinceUTCZero = (firstTimeInMinutesSinceUTCZero + secondTimeZone) % 1440;
-        console.log(firstTime.slice(3, 5));
-        console.log(firstTimeInMinutesSinceUTCZero, secondTimeInMinutesSinceUTCZero);
 
         if (secondTimeInMinutesSinceUTCZero < 0) {
             secondTimeInMinutesSinceUTCZero = secondTimeInMinutesSinceUTCZero + 1440;
         }
 
         const hour = Math.trunc(secondTimeInMinutesSinceUTCZero / 60);
-        console.log(hour);
-        console.log((secondTimeZone % 60).toString())
 
         if (hour < 10) {
             setResultTime("0" + Math.trunc(hour).toString() + ":" + (secondTimeInMinutesSinceUTCZero % 60).toString());
