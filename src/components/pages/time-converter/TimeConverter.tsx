@@ -25,11 +25,20 @@ export default function TimeConverter() {
         }
 
         const hour = Math.trunc(secondTimeInMinutesSinceUTCZero / 60);
+        const minutes = secondTimeInMinutesSinceUTCZero % 60;
 
         if (hour < 10) {
-            setResultTime("0" + Math.trunc(hour).toString() + ":" + (secondTimeInMinutesSinceUTCZero % 60).toString());
+            if (minutes < 10) {
+                setResultTime("0" + Math.trunc(hour).toString() + ":0" + minutes.toString());
+            } else {
+                setResultTime("0" + Math.trunc(hour).toString() + ":" + minutes.toString());
+            }
         } else {
-            setResultTime(Math.trunc(hour).toString() + ":" + (secondTimeInMinutesSinceUTCZero % 60).toString());
+            if (minutes < 10) {
+                setResultTime(Math.trunc(hour).toString() + ":0" + minutes.toString());
+            } else {
+                setResultTime(Math.trunc(hour).toString() + ":" + minutes.toString());
+            }
         }
     }
 
