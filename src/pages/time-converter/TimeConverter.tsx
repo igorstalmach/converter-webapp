@@ -3,7 +3,7 @@ import styles from "./assets/TimeConverter.module.scss";
 import TimeConverterLogo from "../../icons/TimeConverterLogo";
 import Option from "./Option";
 import { UTC, GMT, abbreviations } from "./assets/timeZoneValues";
-import IPLookUp from "./IPLookUp";
+import IPTimeZoneLookUp from "./IPTimeZoneLookUp";
 import {scss_classes} from "../../global";
 
 export default function TimeConverter() {
@@ -93,7 +93,7 @@ export default function TimeConverter() {
                         </div>
                         <div className={styles.inputBoxes}>
                             <div className={styles.ipLookup}>
-                                <IPLookUp/>
+                                <IPTimeZoneLookUp/>
                             </div>
                         </div>
                         <span className={styles.textResult}>

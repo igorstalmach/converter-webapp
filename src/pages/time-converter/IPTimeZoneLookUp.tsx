@@ -3,16 +3,16 @@ import styles from "./assets/IPLookUp.module.scss";
 import axios from "axios";
 import { UTC } from "./assets/timeZoneValues";
 
-export default function IPLookUp() {
+export default function IPTimeZoneLookUp() {
     const [publicIP, setPublicIP] = React.useState<string>("");
     const [timeZone, setTimeZone] = React.useState<string>("");
 
     const getIP = async () => {
-        const res = await axios.get('https://geolocation-db.com/json/');
-        setPublicIP(res.data.IPv4);
+        const ipResponse = await axios.get('https://geolocation-db.com/json/');
+        setPublicIP(ipResponse.data.IPv4);
 
-        const res2 = await axios.get('http://ip-api.com/json/' + publicIP + '?fields=offset');
-        setTimeZone(getTimeZone(res2.data.offset));
+        const locationResponse = await axios.get('http://ip-api.com/json/' + publicIP + '?fields=offset');
+        setTimeZone(getTimeZone(locationResponse.data.offset));
     }
 
     const getTimeZone = (offset: number) => {
