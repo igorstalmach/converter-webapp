@@ -1,13 +1,9 @@
 import React from "react";
-
-interface IProps {
-    width: number;
-    height: number;
-}
+import IProps from "./assets/IconProps";
 
 export default function TimeConverterLogo(props: IProps) {
-    const width = props.width ?? 7050;
-    const height = props.height ?? 1290;
+    const width = props.width ?? 705;
+    const height = props.height ?? 129;
 
     return(
         <svg width={width} height={height} viewBox="0 0 705 129" fill="none" xmlns="http://www.w3.org/2000/svg">
